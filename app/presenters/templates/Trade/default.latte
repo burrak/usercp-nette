@@ -1,0 +1,167 @@
+{block content}
+    {control tradeForm}
+
+    <div class="row">
+        <div class="col">
+            <strong>Mnou navrhované výměny</strong>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-5">
+            Moje postava
+        </div>
+        <div class="col-5">
+            Požadovaná postava
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">
+            <b>Jméno</b>
+        </div>
+        <div class="col-1">
+            <b>Rasa</b>
+        </div>
+        <div class="col-1">
+            <b>Class</b>
+        </div>
+        <div class="col-1">
+            <b>Level</b>
+        </div>
+
+        <div class="col-2">
+            <b>Jméno</b>
+        </div>
+        <div class="col-1">
+            <b>Rasa</b>
+        </div>
+        <div class="col-1">
+            <b>Class</b>
+        </div>
+        <div class="col-1">
+            <b>Level</b>
+        </div>
+
+        <div class="col-2">
+            <b>Akce</b>
+        </div>
+    </div>
+
+    {foreach $tradeByMe as $postava}
+        <div class="row">
+            <div class="col-2">
+                <a n:href="Characters:detail $postava['char1']">{$postava['char1_name']}</a>
+            </div>
+            <div class="col-1">
+                {$postava['char1_race']}
+            </div>
+            <div class="col-1">
+                {$postava['char1_class']}
+            </div>
+            <div class="col-1">
+                {$postava['char1_level']}
+            </div>
+
+            <div class="col-2">
+                {$postava['char2_name']}
+            </div>
+            <div class="col-1">
+                {$postava['char2_race']}
+            </div>
+            <div class="col-1">
+                {$postava['char2_class']}
+            </div>
+            <div class="col-1">
+                {$postava['char2_level']}
+            </div>
+
+            <div class="col-2">
+                <a n:href="cancel!, $postava['id']">Zrušit</a>
+            </div>
+        </div>
+    {/foreach}
+
+    <div class="row">
+        <div class="col">
+            <strong>Návrhy na výměnu</strong>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-5">
+            Moje postava
+        </div>
+        <div class="col-5">
+            Požadovaná postava
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">
+            <b>Jméno</b>
+        </div>
+        <div class="col-1">
+            <b>Rasa</b>
+        </div>
+        <div class="col-1">
+            <b>Class</b>
+        </div>
+        <div class="col-1">
+            <b>Level</b>
+        </div>
+
+        <div class="col-2">
+            <b>Jméno</b>
+        </div>
+        <div class="col-1">
+            <b>Rasa</b>
+        </div>
+        <div class="col-1">
+            <b>Class</b>
+        </div>
+        <div class="col-1">
+            <b>Level</b>
+        </div>
+
+        <div class="col-2">
+            <b>Akce</b>
+        </div>
+    </div>
+    {foreach $tradeToMe as $postava}
+        <div class="row">
+            <div class="col-2">
+                <a n:href="Characters:detail $postava['char1']">{$postava['char1_name']}</a>
+            </div>
+            <div class="col-1">
+                {$postava['char1_race']}
+            </div>
+            <div class="col-1">
+                {$postava['char1_class']}
+            </div>
+            <div class="col-1">
+                {$postava['char1_level']}
+            </div>
+
+            <div class="col-2">
+                {$postava['char2_name']}
+            </div>
+            <div class="col-1">
+                {$postava['char2_race']}
+            </div>
+            <div class="col-1">
+                {$postava['char2_class']}
+            </div>
+            <div class="col-1">
+                {$postava['char2_level']}
+            </div>
+
+            <div class="col-2">
+                <a n:href="confirm!, $postava['id']">Potvrdit</a> |
+                <a n:href="cancel!, $postava['id']">Zrušit</a>
+            </div>
+        </div>
+    {/foreach}
+
+{/block}

@@ -1,0 +1,21 @@
+parameters:
+
+database:
+	dsn: 'mysql:host=localhost;dbname=auth'
+	user: 'wow'
+	password: 'bkc'
+
+application:
+	errorPresenter: Error
+	mapping:
+		*: App\*Module\Presenters\*Presenter
+
+
+session:
+	expiration: 14 days
+
+
+services:
+	router: App\RouterFactory::createRouter
+	authenticator: App\Model\User
+	characters: App\Model\Characters

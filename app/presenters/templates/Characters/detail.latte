@@ -1,0 +1,40 @@
+{block content}
+    <div class="row">
+        <div class="col">
+            Postava: {$character['name']}
+        </div>
+        <div class="col">
+            Rasa: {$character['race']}
+        </div>
+        <div class="col">
+            Class: {$character['class']}
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col">
+            <strong>Služba</strong>
+        </div>
+        <div class="col">
+            <strong>Cena služby</strong>
+        </div>
+        <div class="col">
+            <strong>Zakoupení</strong>
+        </div>
+    </div>
+    {foreach $services as $key => $service}
+        {var $onclick = '\'Opravdu chcete zakoupit ' . $service['service_name'] . '? Cena služby je ' . $service['price'] . ' Kreditů.\''}
+        <div class="row">
+            <div class="col">
+                {$service['service_name']}
+            </div>
+            <div class="col">
+                {$service['price']} Kreditů
+            </div>
+            <div class="col">
+                <a n:href="service!, $service['id'], $character['guid']" onclick="return confirm({$onclick})">
+                    Zakoupit {$service['service_name']}</a>
+            </div>
+        </div>
+    {/foreach}
+{/block}

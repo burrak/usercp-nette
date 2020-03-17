@@ -1,0 +1,57 @@
+{block content}
+    <div class="row">
+        <div class="col">
+            <b>Jméno</b>
+        </div>
+
+        <div class="col">
+            <b>Rasa</b>
+        </div>
+
+        <div class="col">
+            <b>Class</b>
+        </div>
+
+        <div class="col">
+            <b>Level</b>
+        </div>
+
+        <div class="col">
+            <b>Zlato</b>
+        </div>
+    </div>
+
+    {foreach $characters as $character}
+        <div class="row">
+            <div class="col">
+                <a n:href="detail $character['guid']">{$character['name']}</a>
+            </div>
+
+            <div class="col">
+                {$character['race']}
+            </div>
+
+            <div class="col">
+                {$character['class']}
+            </div>
+
+            <div class="col">
+                {$character['level']}
+            </div>
+
+            <div class="col">
+                {if ($character['money'] >= 10000)}
+                    {$character['money']|formatGold}
+                {/if}
+
+                {if ($character['money'] < 10000 && $character['money'] >= 100)}
+                    {$character['money']|formatSilver}
+                {/if}
+
+                {if ($character['money'] < 100)}
+                    {$character['money']|formatCooper}
+                {/if}
+            </div>
+        </div>
+    {/foreach}
+{/block}

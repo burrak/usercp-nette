@@ -1,0 +1,17 @@
+parameters:
+
+    bootstrap: %rootDir%/../../../app/bootstrap.php
+
+    excludes_analyse:
+        - %rootDir%/../../../app/scripts/scheduller.php
+
+    universalObjectCratesClasses:
+        - Nette\Application\UI\ITemplate
+        - Mockery\Mock
+    ignoreErrors:
+#     	 ['/Internal error: Argument 1 passed to PHPStan/']
+
+#includujeme specific nastaveni pro nette
+includes:
+	- ../../vendor/phpstan/phpstan-nette/extension.neon
+	- ../../vendor/phpstan/phpstan-nette/rules.neon
